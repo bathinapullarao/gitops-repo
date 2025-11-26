@@ -141,6 +141,8 @@ spec:
 ### Apply it:
 ```
 kubectl apply -f argo-application.yaml
+#argocd app history myapp
+#argocd app rollback myapp --revision 2
 ```
 
 ---
