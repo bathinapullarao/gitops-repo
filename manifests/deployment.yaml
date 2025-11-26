@@ -17,9 +17,9 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: bathinapullarao/hello-world-app:latest #nginx:latest
+          image: bathinapullarao/orderservice:latest #nginx:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 8000
           env:
             - name: APP_ENV
               valueFrom:
