@@ -9,5 +9,5 @@ spec:
     app: myapp
   ports:
     - port: 80
-      targetPort: 8091
+      targetPort: 8080
 
