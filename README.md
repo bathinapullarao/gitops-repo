@@ -58,11 +58,26 @@ Below is the **Argo CD GitOps setup**, widely used across the industry.
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
-
+### Install Argo CD CLI <--not mandatory
+```
+#sudo curl -sSL -o /usr/local/bin/argocd \
+  https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+#sudo chmod +x /usr/local/bin/argocd
+#argocd version
+#argocd login localhost:8080 --username admin --password <your-password> --insecure
+```
 ### Expose Argo CD UI
 NodePort for local, LoadBalancer for cloud:
 ```
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+#kubectl port-forward svc/argocd-server -n argocd 8080:443  <--when you ctl+d app will stop
+nohup kubectl port-forward svc/argocd-server -n argocd 8080:443 > argocd.log 2>&1 &   <--argocd app will run in background
+#ps aux | grep port-forward     <--get the processid of argocd
+#kill <PID>                     <--stop the argocd application
+#cat argocd.log
+
+
+
+
 ```
 Now open:
 ```
